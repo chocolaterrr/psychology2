@@ -1,37 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>心理学検定 一問一答クイズ（人名×固有名詞）</title>
-    <!-- この行で別ファイルの style.css を読み込んでいます -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
-    <h1>心理学検定 暗記メーカー</h1>
-
-    <div class="mode-selector">
-        <button class="mode-btn active" onclick="changeMode('nameToConcept')">人名 → 固有名詞</button>
-        <button class="mode-btn" onclick="changeMode('conceptToName')">固有名詞 → 人名</button>
-    </div>
-
-    <div class="progress" id="progress">0 / 0</div>
-
-    <div class="question-box">
-        <div class="question-header" id="q-header">問題</div>
-        <div class="question-text" id="q-text">ここに問題が表示されます</div>
-    </div>
-
-    <div class="options-grid" id="options-container"></div>
-
-    <div class="feedback" id="feedback-box"></div>
-
-    <button class="next-btn" id="next-button" onclick="nextQuestion()">次の問題へ</button>
-</div>
-
-<!-- この行で別ファイルの script.js を読み込んでいます -->
-<script src="script.js"></script>
+    <div id="quiz-app">画面をリセットしました</div>
+    <script src="script.js"></script>
 </body>
 </html>
