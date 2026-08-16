@@ -11,7 +11,7 @@ const psychologyData = [
   { name: "マウラー", keyword: "即時強化", desc: "回避学習を古典的条件づけ（恐怖）とオペラント条件づけ（恐怖減少による強化）の2要因で説明、即時的な強化を重視。" },
   { name: "ハル", keyword: "動因低減説（欲求低減説）", desc: "生物的な動因（ドライブ）や欲求が減少・低減することが、行動の強化因子になるとした理論。" },
   { name: "メール", keyword: "場面転移性の原理", desc: "ある場面で強化力を持つ刺激は、他の異なる場面（状況）に転移しても同じように強化力を持つという原理。" },
-  { name: "ブレマック", keyword: "生起確率が高いものは低いものを強化する理論", desc: "「生起確率の高い行動（頻繁行う行動）」は、「生起確率の低い行動」を強化することができるという理論。" },
+  { name: "ブレマック", keyword: "生起確率が高いものは低いものを強化する理論", desc: "「生起確率の高い行動（頻繁に行う行動）」は、「生起確率の低い行動」を強化することができるという理論。" },
   { name: "ティンバーレイク＆アリソン", keyword: "反応遮断化理論", desc: "ある行動が自由にできないよう制限（遮断）されると、その行動自体が本来の確率に関わらず強化子になるという理論。" },
   { name: "ハーロウ", keyword: "同時弁別課題 / 逆転学習", desc: "複数の課題を解くうちに「解き方のコツ」を獲得する。同時弁別や、正誤が入れ替わる逆転学習で検証。代理母実験も有名。" },
   { name: "ハーンスタイン", keyword: "継時弁別課題", desc: "刺激を順番に提示する継時弁別。選択行動の割合は、得られる報酬の割合と一致するという「マッチングの法則」を提唱。" },
@@ -36,7 +36,6 @@ const psychologyData = [
   { name: "ウェイソン", keyword: "帰納的推論 / 確証バイアス", desc: "人間は自分の仮説を証明する証拠ばかりを集めてしまい、反証を探そうとしない傾向（確証バイアス）があることを示した。" },
   { name: "ポズナー", keyword: "視覚的注意", desc: "注意を「心のスポットライト」に例え、事前に手がかりが出るとその場所への視覚的処理が速くなる実験を行った。" }
 ];
-
 let currentMode = 'nameToConcept';
 let currentQuestionIndex = 0;
 let currentQuestion = null;
@@ -114,17 +113,29 @@ function checkAnswer(selectedButton, selectedValue, correctAnswer) {
     feedbackBox.style.display = 'block';
 
     if (selectedValue === correctAnswer) {
-        selectedButton.classList.add('correct');
-        feedbackBox.className = 'feedback correct-bg';
+        selectedButton.style.background = '#dcfce7';
+        selectedButton.style.borderColor = '#16a34a';
+        selectedButton.style.color = '#14532d';
+        selectedButton.style.fontWeight = 'bold';
+        feedbackBox.style.background = '#dcfce7';
+        feedbackBox.style.color = '#14532d';
+        feedbackBox.style.border = '1px solid #16a34a';
         feedbackBox.innerHTML = `<strong>正解！</strong><br>${currentQuestion.name} ＝ ${currentQuestion.keyword}<br><br>${currentQuestion.desc}`;
     } else {
-        selectedButton.classList.add('wrong');
-        feedbackBox.className = 'feedback wrong-bg';
+        selectedButton.style.background = '#fee2e2';
+        selectedButton.style.borderColor = '#dc2626';
+        selectedButton.style.color = '#7f1d1d';
+        feedbackBox.style.background = '#fee2e2';
+        feedbackBox.style.color = '#7f1d1d';
+        feedbackBox.style.border = '1px solid #dc2626';
         feedbackBox.innerHTML = `<strong>不正解...</strong><br>正解は <strong>${correctAnswer}</strong> です。<br><br>${currentQuestion.name} ＝ ${currentQuestion.keyword}<br>${currentQuestion.desc}`;
         
         buttons.forEach(btn => {
             if (btn.innerText === correctAnswer) {
-                btn.classList.add('correct');
+                btn.style.background = '#dcfce7';
+                btn.style.borderColor = '#16a34a';
+                btn.style.color = '#14532d';
+                btn.style.fontWeight = 'bold';
             }
         });
     }
